@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://gtpb8kufcjb5"]
+
+[ext_resource type="Texture2D" uid="uid://ox3xbk0ml0t1" path="res://physics/Civilian_card_back.png" id="1_0j3yc"]
+[ext_resource type="Script" path="res://physics/Player.gd" id="1_1ys74"]
+[ext_resource type="Script" path="res://physics/Debug.gd" id="3_1kk0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqha3"]
+size = Vector2(78, 112)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="RigidBody2D" parent="."]
+position = Vector2(607, 568)
+gravity_scale = 0.0
+linear_damp = 5.0
+script = ExtResource("1_1ys74")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_0j3yc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_cqha3")
+
+[node name="Debug" type="Node2D" parent="."]
+position = Vector2(834, 578)
+script = ExtResource("3_1kk0x")
+
+[node name="Label" type="Label" parent="Debug"]
+offset_right = 322.0
+offset_bottom = 23.0
+text = "Card Pos"
+
+[node name="Label2" type="Label" parent="Debug"]
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 321.0
+offset_bottom = 47.0
+text = "Mouse Pos: "
